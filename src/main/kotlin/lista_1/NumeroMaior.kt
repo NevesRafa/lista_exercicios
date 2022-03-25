@@ -6,22 +6,19 @@ fun main() {
 
 fun numeroMaior() {
 
-    var num1 = 10
-    val num2 = 23
-    var num3 = 8
-    var numMaior = 0
+    val num1 = 15
+    val num2 = 5
+    val num3 = 25
+    var numMaior = num1
 
-    if (num1 > num2) {
-        numMaior = num1
-    }
-
-    if (num2 > num3) {
+    if (num2 >= numMaior) {
         numMaior = num2
     }
 
-    if (num3 > num1) {
+    if (num3 >= numMaior) {
         numMaior = num3
     }
+
 
     println("O numero maior é $numMaior")
 }

@@ -40,7 +40,7 @@ fun contador() {
 
 
     }
-
+    println("Valor do contador = $valorInicial")
     println("Fim do Programa!!!")
 
 }

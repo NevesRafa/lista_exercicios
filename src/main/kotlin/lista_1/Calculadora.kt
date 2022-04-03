@@ -15,11 +15,11 @@ fun calculadora() {
 
         println("-----------------------------------------")
         println("Digite um numero que deseja calcular:")
-        val num1 = readLine()?.toDouble()
+        val num1 = readLine()?.toInt()
 
         println("-----------------------------------------")
         println("Digite um numero que deseja calcular:")
-        val num2 = readLine()?.toDouble()
+        val num2 = readLine()?.toInt()
 
         if (num1 != null && num2 != null) {
 
@@ -35,10 +35,6 @@ fun calculadora() {
             }
 
 
-            val soma = num1 + num2
-            val subtracao = num1 - num2
-            val multiplicacao = num1 * num2
-            val divisao = num1 / num2
 
 
             println("-----------------------------------------")
@@ -46,10 +42,24 @@ fun calculadora() {
             println("Para subtrair digite [-]")
             println("Para multiplicar digite [*]")
             println("Para dividir digite [/]")
+            println("Para sair do programa digite [S]")
             println("-----------------------------------------")
 
             println("Digite a operação desejada:")
             entrada = readLine().toString()
+
+            if (num2 == 0 && entrada == "/") {
+                println("Impossivel dividir por 0")
+                return
+
+            }
+
+
+            val soma = num1 + num2
+            val subtracao = num1 - num2
+            val multiplicacao = num1 * num2
+            val divisao = num1 / num2
+
 
 
             when {

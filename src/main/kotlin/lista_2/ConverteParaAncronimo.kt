@@ -1,10 +1,5 @@
 package lista_2
 
-fun main() {
-    ConverteParaAncronimo().converteAncronimo()
-}
-
-
 class ConverteParaAncronimo {
 
     fun converteAncronimo() {

@@ -1,5 +1,6 @@
 package lista_2
 
+
 class ConverteParaAncronimo {
 
     fun converteAncronimo() {
@@ -12,7 +13,7 @@ class ConverteParaAncronimo {
 
 
         listaNomes.forEach { nome ->
-            println(nome[0])
+            print(nome[0])
         }
 
 

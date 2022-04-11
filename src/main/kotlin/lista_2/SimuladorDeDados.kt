@@ -1,5 +1,7 @@
 package lista_2
-
+fun main() {
+    SimuladorDeDados().simuladorDados()
+}
 class SimuladorDeDados {
     fun simuladorDados() {
 

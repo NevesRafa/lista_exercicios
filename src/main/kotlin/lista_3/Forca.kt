@@ -54,7 +54,6 @@ class Forca() {
         "Umbigo"
     )
     var chance = 3
-    var escondePalavra = "_"
     val listaChutes: MutableList<String> = mutableListOf()
     lateinit var palavraPreenchida: MutableList<String>
 
@@ -69,52 +68,49 @@ class Forca() {
     fun jogoDaForca() {
 
         val palavraSorteada = listaPalavras.random().uppercase()
+        val palavraSemAcento = deAccent(palavraSorteada)
         palavraPreenchida = MutableList(palavraSorteada.length) { "" }
-
-        println(palavraSorteada)
-        println(palavraPreenchida)
-
-
-        val palavraPreenchidaJunta = palavraPreenchida.joinToString(separator = "")
-
 
         while (true) {
 
+            println("Seus chutes ate agora foram $listaChutes\n")
             println("\nChute uma letra!")
             val chuteUsuario = readLine().toString().uppercase()
+            listaChutes.add(chuteUsuario)
 
-            if (palavraSorteada.contains(chuteUsuario)) {
-                listaChutes.add(chuteUsuario)
-                verificaLetra(palavraSorteada, chuteUsuario)
-                println(listaChutes)
-            } else {
-                chance -= 1
-                println("A letra $chuteUsuario não contém na palavra, você tem ainda $chance...Boa sorte!")
+            if (palavraSemAcento != null) {
+                if (palavraSemAcento.contains(chuteUsuario)) {
+                    verificaLetra(palavraSemAcento, chuteUsuario)
+                    println(palavraPreenchida)
+                } else {
+                    chance -= 1
+                    println("A letra $chuteUsuario não contém na palavra, você tem ainda $chance...Boa sorte!")
+                }
             }
+
+            val palavraPreenchidaJunta = palavraPreenchida.joinToString(separator = "")
             if (chance <= 0) {
-                println("Acabou sua chance!!")
+                println("Aaaa você perdeu, acabaram suas chances...a palavra era $palavraSorteada")
                 break
-            } else if (palavraPreenchidaJunta == palavraSorteada) {
+            } else if (palavraPreenchidaJunta == palavraSemAcento) {
                 println("Parabens voce acertou a palavra!!")
                 break
             }
         }
+
+
     }
 
-    fun verificaLetra(palavraSorteada: String, chuteUsuario: String) {
+    fun verificaLetra(palavraSemAcento: String, chuteUsuario: String) {
 
-        palavraSorteada.forEachIndexed { posicao, letra ->
+        palavraSemAcento.forEachIndexed { posicao, letra ->
 
             if (chuteUsuario[0] == letra) {
-                palavraPreenchida.add(posicao, letra.toString())
-
-            } else if (chuteUsuario[0] != letra) {
-                print(escondePalavra)
+                palavraPreenchida.set(posicao, letra.toString())
             }
         }
     }
 }
-
 
 
 
